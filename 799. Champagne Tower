@@ -1,0 +1,21 @@
+public class Solution {
+    public double ChampagneTower(int poured, int query_row, int query_glass) {
+        
+        double[,] arr=new double[query_row+1,query_glass+2];
+        arr[0,0]=poured;
+        for(int i=0;i<query_row;i++)
+        {
+            for(int j=0;j<=query_glass;j++)
+            {
+                double overflow=(arr[i,j]-1)/2.0;
+                if(overflow>0)
+                {
+                    arr[i+1,j]+=overflow;
+                    arr[i+1,j+1]+=overflow;
+                }
+            }
+        }
+        return Math.Min(1.0,arr[query_row,query_glass]);
+
+    }
+}
