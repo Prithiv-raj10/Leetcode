@@ -1,0 +1,29 @@
+public class Solution {
+    public int[] SortArrayByParity(int[] nums) {
+        int left=0;
+        int right=nums.Length-1;
+        while(left<right)
+        {
+            if(nums[left]%2==1)
+            {
+                if(nums[right]%2==0)
+                {
+                    int t=nums[left];
+                    nums[left]=nums[right];
+                    nums[right]=t;
+                    left++;
+                    right--;
+                }
+                else
+                {
+                    right--;
+                }
+            }
+            else
+            {
+                left++;
+            }
+        }
+        return nums;
+    }
+}
