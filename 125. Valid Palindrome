@@ -1,0 +1,22 @@
+public class Solution {
+    public bool IsPalindrome(string t) {
+        string res=string.Empty;
+        t=t.ToLower();
+        for(int i=0;i<t.Length;i++)
+        {
+            if(Char.IsLetterOrDigit(t[i]))
+            {
+                res+=t[i];
+            }
+        }
+        int left;
+        for(left=0;left<res.Length/2;left++)
+        {
+            if(res[left]!=res[res.Length-left-1])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
